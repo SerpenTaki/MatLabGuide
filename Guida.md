@@ -18,24 +18,24 @@ Iniziamo con alcuni comandi di base
 | i      | unità immaginaria       |
 ##### Funzioni utili
 
-| Simbolo | Significato          |
-| ------- | -------------------- |
-| `sign`  | segno                |
-| `sqrt`  | radice quadrata      |
-| `cos`   | coseno               |
-| `cotan` | cotangente           |
-| `acos`  | arcocoseno           |
-| `log`   | logaritmo naturale   |
-| `log2`  | logaritmo base 2     |
-| `floor` | parte intera         |
-| `abs`   | valore assoluto      |
-| `sin`   | seno                 |
-| `tan`   | tangente             |
-| `asin`  | arcoseno             |
-| `exp`   | esponenziale         |
-| `log10` | logaritmo in base 10 |
-| `round` | arrotondamento       |
-| `ceil`  | parte intera + 1     |
+| Simbolo | Significato          | Caratteristiche                                                                          |
+| ------- | -------------------- | ---------------------------------------------------------------------------------------- |
+| `sign`  | segno                |                                                                                          |
+| `sqrt`  | radice quadrata      |                                                                                          |
+| `cos`   | coseno               |                                                                                          |
+| `cotan` | cotangente           |                                                                                          |
+| `acos`  | arcocoseno           |                                                                                          |
+| `log`   | logaritmo naturale   |                                                                                          |
+| `log2`  | logaritmo base 2     |                                                                                          |
+| `floor` | parte intera         |                                                                                          |
+| `abs`   | valore assoluto      |                                                                                          |
+| `sin`   | seno                 |                                                                                          |
+| `tan`   | tangente             |                                                                                          |
+| `asin`  | arcoseno             |                                                                                          |
+| `exp`   | esponenziale         | exp richiede un argomento quindi se vogliamo rappresentare $e$ bisogna scrivere `exp(1)` |
+| `log10` | logaritmo in base 10 |                                                                                          |
+| `round` | arrotondamento       |                                                                                          |
+| `ceil`  | parte intera + 1     |                                                                                          |
 ###### Comandi utili
 - `clc` pulisce la command window
 - `clear all` pulisce tutte le variabile
@@ -199,3 +199,4 @@ while <condizione> %quando non sai quanto devi iterare
 	<processo>
 end
 ```
+
