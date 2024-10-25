@@ -1,9 +1,10 @@
-function [x,xall,iter] = corde(f,a,b,x0,tol,max_iter)
+function [x,xall,iter] = schroeder(f,Df,D2f,x0,tol,max_iter)
 
-% Metodo delle corde per la soluzione di equazioni nonlineari
+% Iterazione di Newton per la soluzione di equazioni nonlineari
 % -------------- Inputs ------------------------------------------
 %               f        funzione di cui vogliamo trovare lo zero
-%               a,b      estremi dell'intervallo
+%               Df       derivata di f
+%               D2f      derivata seconda
 %               x0       valore iniziale 
 %               tol      tolleranza per la condizione di arresto
 %               max_iter numero massimo di iterazioni
@@ -13,23 +14,24 @@ function [x,xall,iter] = corde(f,a,b,x0,tol,max_iter)
 %               iter     numero di iterazioni
 % ----------------------------------------------------------------
 
-if f(a)*f(b) > 0 
-   error('Metodo delle corde non applicabile');
-elseif f(a)*f(b) == 0 
-   error('La funzione e` zero su uno dei bordi');
+if (Df(x0)^2)-(f(x0)*D2f(x0)) == 0
+   error('Warning');
 end
 
-q = (f(b)-f(a))/(b-a);   
-x = x0 - f(x0)/q;             % prima iterata
+q = -(f(x0)*Df(x0))/((Df(x0)^2)-(f(x0)*D2f(x0)));
+x = x0 + q;
 iter = 1;
 xall(iter) = x;
 
-while (abs(x-x0) > tol) && (iter < max_iter)           % ciclo iterativo
+while (abs(x - x0) > tol) && (iter < max_iter)           % ciclo iterativo
   x0 = x;
-  x = x0 - f(x0)/q;                                              % nuova iterazione
-  iter = iter + 1;                                    % nuovo numero di iterazione
+  if (Df(x0)^2)-(f(x0)*D2f(x0)) == 0 
+      break 
+  end
+  q = -(f(x0)*Df(x0))/((Df(x0)^2)-(f(x0)*D2f(x0)));
+  x = x0+q;
+  iter = iter + 1;
   xall(iter) = x;
 end
 
 end
-
